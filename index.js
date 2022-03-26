@@ -1,16 +1,5 @@
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const server = require('./src/server');
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+server.listen(3000, () => {
+  console.log('Server is listening on port 3000');
 });
-
-client.on('interactionCreate', async interaction => {
-  if (!interaction.isCommand()) return;
-
-  if (interaction.commandName === 'ping') {
-    await interaction.reply('Pong!');
-  }
-});
-
-client.login('token');
