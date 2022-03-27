@@ -1,6 +1,6 @@
 const http = require("http");
 const axios = require('axios');
-const client = require('./client');
+// const client = require('./client');
 
 const ROUTE = 'http://shouldideploy.today/api?tz=America/Sao_Paulo';
 
