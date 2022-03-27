@@ -17,7 +17,7 @@ module.exports = http.createServer(async (request, response) => {
   const data = await getData();
 
   // Send the response to Discord chanel
-  client(data);
+  // client(data);
   // Send the response to the client
   response.writeHead(200, { "Content-Type": "application/json" });
   response.end(JSON.stringify({ data }));
