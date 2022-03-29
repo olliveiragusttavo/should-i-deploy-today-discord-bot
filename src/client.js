@@ -1,10 +1,9 @@
 const { Client, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const env = require('../env.json');
 
 const PREFIX = '!';
 const COMMAND = 'deploy';
-
-const DISCORD_TOKEN = 'token';
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -25,6 +24,6 @@ function message(data) {
   });
 }
 
-client.login(DISCORD_TOKEN);
+client.login(env.token);
 
 module.exports = message;
