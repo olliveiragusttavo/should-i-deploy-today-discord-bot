@@ -5,16 +5,16 @@ const env = require('../env.json');
 const PREFIX = '!';
 const COMMAND = 'deploy';
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+function startClient(data) {
+  client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+  });
 
-// Add a listener to the client to send a log whatever the client is ready
-client.once('ready', () => {
-  console.log(`${new Date().toISOString()} - cliente.ready: Discord connected!`);
-});
+  // Add a listener to the client to send a log whatever the client is ready
+  client.once('ready', () => {
+    console.log(`${new Date().toISOString()} - cliente.ready: Discord connected!`);
+  });
 
-function message(data) {
   // Add a listener to the client when they send a message and check if the message is a command
   client.on('message', async (message) => {
     if (message.content.startsWith(`${PREFIX}${COMMAND}`)) {
@@ -22,8 +22,8 @@ function message(data) {
       message.channel.send(`${data.shouldideploy ? '👍' : '👎'} ${data.message}`);
     }
   });
+
+  client.login(env.token);
 }
 
-client.login(env.token);
-
-module.exports = message;
+module.exports = startClient;
