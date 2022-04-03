@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 // Keep the interval function to stoop when is required
-var interval;
+const intervals = {};
 
 // Set the interaction functions
 const interations = {
@@ -21,13 +21,13 @@ const interations = {
     sendDeployMessage(message);
 
     // Set the interval to send the message every 24 hours
-    interval = setInterval(() => {
+    intervals[message.channel.id] = setInterval(() => {
       sendDeployMessage(message);
     }, 82800000);
   },
 
   '!stopLoop': (message) => {
-    clearInterval(interval);
+    clearInterval(intervals[message.channel.id]);
     message.channel.send({ content: `From now on, you will no longer receive automatic messages.` });
   },
 
