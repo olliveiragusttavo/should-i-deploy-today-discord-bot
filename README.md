@@ -11,6 +11,8 @@ Apenas um site cômico com mensagens criativas sugerindo ou não que você faça
 <br>
 A API pode ser encontrada [aqui](http://shouldideploy.today/api?tz=America/Sao_Paulo).
 
+Diagramas da estrutura da aplicação estão disponíveis [aqui](diagrams/README.MD)
+
 ## Utilização
 
 Para adicionar o BOT no discord, acesse: [Discord](https://discord.com/api/oauth2/authorize?client_id=957157518772146258&permissions=3072&scope=bot%20applications.commands)
@@ -19,13 +21,3 @@ Para utilizar, use os comandos abaixo:
 - **!deploy** Chamada manual da mensagem de Should I Deploy Today
 - **!startLoop** Starts sending messages automatically every 24h
 - **!stopLoop** Stops the automatic sending of messages
-
-## Diagramas
-
-### Contexto
-
-![Diagrama de contexto](diagrams/context.jpeg)
-
-### Container
-
-![Diagrama de contexto](diagrams/container.jpeg)

@@ -1,6 +1,8 @@
 const server = require('./src/server');
 const client = require('./src/client');
-const env = require('./env');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 // process.env are the environment variables in the production server
 const port = process.env.PORT || env.port || 3000;
