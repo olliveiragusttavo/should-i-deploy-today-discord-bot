@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+    db-sidt:
+        image: postgres:10
+        container_name: db-sidt
+        environment:
+            POSTGRES_USER: "panacaqui"
+            POSTGRES_PASSWORD: "123456"
+        restart: on-failure
+        ports:
+            - 15433:5432
+        networks:
+            - net-sidt
+
+    server-sidt:
+        depends_on:
+            - db-sidt
+        image: ubuntu:20.04
+        build: .
+        container_name: should-i-deploy-today-discord-bot
+        restart: on-failure
+        ports:
+            - 8003:80
+        volumes:
+            - ./files:/home
+        links:
+            - db-sidt
+        networks:
+            - net-sidt
+
+networks:
+    net-sidt:
+        driver: bridge
